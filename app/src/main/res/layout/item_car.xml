@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/item_car_iv"
+        android:layout_width="@dimen/car_icon_size"
+        android:layout_height="@dimen/car_icon_size"
+        android:layout_gravity="center"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:padding="4dp"
+        android:background="@color/colorPrimaryDark"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_launcher_foreground" />
+
+    <TextView
+        android:id="@+id/tv_car_manufacturer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/item_car_margin_top"
+        android:layout_marginStart="@dimen/item_car_margin_start"
+        android:text="Manufacturer"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/item_car_iv"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_car_brand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/item_car_margin_top"
+        android:layout_marginStart="@dimen/item_car_margin_start"
+        android:text="Brand"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/item_car_iv"
+        app:layout_constraintTop_toBottomOf="@id/tv_car_manufacturer" />
+
+    <TextView
+        android:id="@+id/tv_car_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/item_car_margin_top"
+        android:layout_marginStart="@dimen/item_car_margin_start"
+        android:text="Price"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/item_car_iv"
+        app:layout_constraintTop_toBottomOf="@id/tv_car_brand" />
+
+</android.support.constraint.ConstraintLayout>

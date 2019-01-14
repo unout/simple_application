@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:gravity="start"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/dialog_et_manufacturer"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+
+        android:layout_marginStart="@dimen/item_car_margin_start"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="8dp"
+
+        android:background="@android:color/transparent"
+        android:gravity="start"
+
+        android:hint="Manufacturer"
+        android:maxEms="64"
+        android:maxLines="1" />
+
+    <EditText
+        android:id="@+id/dialog_et_brand"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+
+        android:layout_marginStart="@dimen/item_car_margin_start"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="8dp"
+
+        android:background="@android:color/transparent"
+        android:gravity="start"
+        android:hint="Brand"
+
+        android:maxEms="36"
+        android:maxLines="1" />
+
+    <EditText
+        android:id="@+id/dialog_et_price"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+
+        android:layout_marginStart="@dimen/item_car_margin_start"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="8dp"
+
+        android:background="@android:color/transparent"
+        android:gravity="start"
+        android:hint="Price"
+        android:inputType="number"
+        android:maxEms="16"
+        android:maxLines="1" />
+
+
+</LinearLayout>

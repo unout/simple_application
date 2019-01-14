@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="my.not.chaos.simpleapplication.MainActivity">
+
+    <item
+        android:id="@+id/action_sorting_brand"
+        android:orderInCategory="100"
+        android:title="@string/sorting_brand"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_sorting_manufacturer"
+        android:orderInCategory="100"
+        android:title="@string/sorting_manufacturer"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_sorting_price"
+        android:orderInCategory="100"
+        android:title="@string/sorting_price"
+        app:showAsAction="never" />
+</menu>

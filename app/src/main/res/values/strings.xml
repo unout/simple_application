@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SimpleApplication</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="sorting_price">Sorting by price</string>
+    <string name="sorting_brand">Sorting by brand</string>
+    <string name="sorting_manufacturer">Sorting by manufacturer</string>
+</resources>
