@@ -4,26 +4,18 @@ import io.realm.RealmObject;
 
 public class Car extends RealmObject {
 
-    private String brand;
     private String manufacturer;
+    private String brand;
 
     private int price;
 
     public Car() {
     }
 
-    public Car(String brand, String manufacturer, int price) {
-        this.brand = brand;
+    public Car(String manufacturer, String brand, int price) {
         this.manufacturer = manufacturer;
-        this.price = price;
-    }
-
-    public String getCarBrand() {
-        return brand;
-    }
-
-    public void setCarBrand(String brand) {
         this.brand = brand;
+        this.price = price;
     }
 
     public String getCarManufacturer() {
@@ -32,6 +24,14 @@ public class Car extends RealmObject {
 
     public void setCarManufacturer(String manufacturer) {
         this.manufacturer = manufacturer;
+    }
+
+    public String getCarBrand() {
+        return brand;
+    }
+
+    public void setCarBrand(String brand) {
+        this.brand = brand;
     }
 
     public int getCarPrice() {

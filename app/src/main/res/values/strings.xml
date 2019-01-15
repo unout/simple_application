@@ -5,4 +5,7 @@
     <string name="sorting_price">Sorting by price</string>
     <string name="sorting_brand">Sorting by brand</string>
     <string name="sorting_manufacturer">Sorting by manufacturer</string>
+    <string name="et_hint_manufacturer">Manufacturer</string>
+    <string name="et_hint_brand">Brand</string>
+    <string name="et_hint_price">Price</string>
 </resources>

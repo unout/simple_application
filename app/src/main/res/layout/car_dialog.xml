@@ -10,17 +10,17 @@
         android:id="@+id/dialog_et_manufacturer"
         android:layout_width="match_parent"
 
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_height="@dimen/et_height"
 
         android:layout_marginStart="@dimen/item_car_margin_start"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="14dp"
         android:layout_marginBottom="8dp"
 
         android:background="@android:color/transparent"
         android:gravity="start"
+        android:hint="@string/et_hint_manufacturer"
 
-        android:hint="Manufacturer"
+        android:inputType="text"
         android:maxEms="64"
         android:maxLines="1" />
 
@@ -28,8 +28,7 @@
         android:id="@+id/dialog_et_brand"
         android:layout_width="match_parent"
 
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_height="@dimen/et_height"
 
         android:layout_marginStart="@dimen/item_car_margin_start"
         android:layout_marginTop="4dp"
@@ -37,8 +36,8 @@
 
         android:background="@android:color/transparent"
         android:gravity="start"
-        android:hint="Brand"
-
+        android:hint="@string/et_hint_brand"
+        android:inputType="text"
         android:maxEms="36"
         android:maxLines="1" />
 
@@ -46,16 +45,15 @@
         android:id="@+id/dialog_et_price"
         android:layout_width="match_parent"
 
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_height="@dimen/et_height"
 
         android:layout_marginStart="@dimen/item_car_margin_start"
         android:layout_marginTop="4dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="2dp"
 
         android:background="@android:color/transparent"
         android:gravity="start"
-        android:hint="Price"
+        android:hint="@string/et_hint_price"
         android:inputType="number"
         android:maxEms="16"
         android:maxLines="1" />

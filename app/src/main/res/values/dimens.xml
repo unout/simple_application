@@ -3,4 +3,5 @@
     <dimen name="item_car_margin_top">4dp</dimen>
     <dimen name="item_car_margin_start">16dp</dimen>
     <dimen name="car_icon_size">60dp</dimen>
+    <dimen name="et_height">40dp</dimen>
 </resources>

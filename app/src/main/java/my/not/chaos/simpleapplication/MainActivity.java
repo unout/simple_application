@@ -2,30 +2,24 @@ package my.not.chaos.simpleapplication;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import java.lang.ref.WeakReference;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
-import io.realm.RealmList;
 
 public class MainActivity extends AppCompatActivity implements CarsAdapter.OnCarClickListener {
 
+    public static final int EDIT = 0;
+    public static final int DELETE = 1;
     private List<Car> cars;
     private RecyclerView rvCar;
     private CarsAdapter adapter;
@@ -50,8 +44,7 @@ public class MainActivity extends AppCompatActivity implements CarsAdapter.OnCar
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(view -> {
-            Car car = new Car();
-            CarDialogProvider carDialogProvider = new CarDialogProvider(new WeakReference<>(MainActivity.this), car);
+            CarDialogProvider carDialogProvider = new CarDialogProvider(new WeakReference<>(MainActivity.this), null);
             carDialogProvider.createDialog();
             carDialogProvider.show();
         });
@@ -92,7 +85,6 @@ public class MainActivity extends AppCompatActivity implements CarsAdapter.OnCar
                     .findAll()
                     .sort("price");
         }
-        Log.e("||||", cars.toString());
 
         adapter = new CarsAdapter(cars, this);
         rvCar.setAdapter(adapter);
@@ -106,10 +98,21 @@ public class MainActivity extends AppCompatActivity implements CarsAdapter.OnCar
         final String[] mActions = getResources().getStringArray(R.array.dialog_actions);
         final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setItems(mActions, (dialogInterface, i) -> {
-            if (i == 0) {
+            if (i == EDIT) {
                 CarDialogProvider carDialogProvider = new CarDialogProvider(new WeakReference<>(MainActivity.this), cars.get(position));
                 carDialogProvider.createDialog();
                 carDialogProvider.show();
+            }
+            if (i == DELETE) {
+                try (Realm realm = Realm.getDefaultInstance()) {
+                    realm.beginTransaction();
+                    Car car = cars.get(position);
+                    if (car != null) {
+                        car.deleteFromRealm();
+                    }
+                    realm.commitTransaction();
+                }
+                refreshCarList();
             }
         })
                 .create()
@@ -117,29 +120,18 @@ public class MainActivity extends AppCompatActivity implements CarsAdapter.OnCar
         return true;
     }
 
-    public void addCar(Car car) {
+    public void addOrUpdateCar(Car car) {
 
-        if (checkCar(car)) {
-            try (Realm realm = Realm.getDefaultInstance()) {
-                realm.beginTransaction();
-                realm.insert(car);
-                realm.commitTransaction();
-            }
-            rvCar.invalidate();
-        } else {
-            Toast.makeText(MainActivity.this, "Wrong input", Snackbar.LENGTH_LONG).show();
+        try (Realm realm = Realm.getDefaultInstance()) {
+            realm.beginTransaction();
+            realm.insertOrUpdate(car);
+            realm.commitTransaction();
         }
+        refreshCarList();
     }
 
-    private boolean checkCar(Car car) {
-        if (car.getCarBrand() == null || car.getCarManufacturer() == null) {
-            return false;
-        }
-
-        if (car.getCarBrand().equals("") || car.getCarManufacturer().equals("") || car.getCarPrice() <= 0) {
-            return false;
-        }
-
-        return true;
+    public void refreshCarList() {
+        adapter.notifyDataSetChanged();
+        rvCar.invalidate();
     }
 }
